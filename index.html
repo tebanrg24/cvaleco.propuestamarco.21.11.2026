@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Propuesta para Marco | CVale</title>
+<style>
+  :root {
+    --navy: #1B2A4A;
+    --navy-soft: #3A4D75;
+    --teal: #0BA89A;
+    --teal-light: #E6F7F5;
+    --bg: #F5F7FA;
+    --card: #FFFFFF;
+    --text: #2D3142;
+    --muted: #6B7280;
+    --border: #E5E9F0;
+    --gold: #D4A857;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* HEADER */
+  header.top { background: var(--navy); padding: 14px 0; }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-weight: 800; font-size: 22px; color: #fff; letter-spacing: 0.5px; }
+  .logo span { color: var(--teal); }
+  .tagline { font-size: 13px; color: #C9D2E3; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* HERO */
+  .hero { padding: 56px 0 40px; }
+  .hero h1 { font-size: 32px; color: var(--navy); margin-bottom: 14px; font-weight: 800; }
+  .hero p.lead { font-size: 17px; color: var(--muted); max-width: 700px; margin-bottom: 24px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tag {
+    background: var(--teal-light); color: var(--teal);
+    border: 1px solid var(--teal); font-size: 13px; font-weight: 600;
+    padding: 6px 14px; border-radius: 999px;
+  }
+
+  /* SECTIONS */
+  section { padding: 36px 0; }
+  .section-label {
+    font-size: 13px; font-weight: 700; color: var(--teal);
+    text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px;
+  }
+  .section-title { font-size: 26px; font-weight: 800; color: var(--navy); margin-bottom: 24px; }
+
+  /* STATS */
+  .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .stat-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px;
+  }
+  .stat-card .num { font-size: 38px; font-weight: 800; color: var(--teal); margin-bottom: 8px; line-height: 1; }
+  .stat-card .desc { font-size: 14px; color: var(--text); margin-bottom: 10px; }
+  .stat-card .src { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* RETOS */
+  .reto-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px; margin-bottom: 16px;
+    display: flex; gap: 18px; align-items: flex-start;
+  }
+  .reto-num {
+    flex: 0 0 auto; width: 40px; height: 40px;
+    background: var(--navy); color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 16px;
+  }
+  .reto-content h3 { font-size: 18px; color: var(--navy); margin-bottom: 6px; font-weight: 700; }
+  .reto-content p { font-size: 15px; color: var(--text); }
+
+  /* SESSIONS */
+  .session-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 26px; margin-bottom: 18px;
+  }
+  .session-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+  .session-num {
+    flex: 0 0 auto; width: 42px; height: 42px;
+    background: var(--teal); color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 17px;
+  }
+  .session-head h3 { font-size: 19px; color: var(--navy); font-weight: 800; }
+  .session-head .duracion {
+    margin-left: auto; font-size: 12px; font-weight: 700; color: var(--teal);
+    border: 1px solid var(--teal); padding: 3px 10px;
+    border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .session-card .objective {
+    font-size: 15px; font-style: italic; color: var(--navy-soft);
+    margin-bottom: 14px; padding-left: 14px; border-left: 3px solid var(--teal);
+  }
+  .session-card .subhead {
+    font-size: 13px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--muted); margin: 14px 0 8px;
+  }
+  .session-card ul { padding-left: 20px; font-size: 15px; color: var(--text); }
+  .session-card ul li { margin-bottom: 7px; }
+  .session-card .takeaway {
+    margin-top: 14px; background: var(--teal-light);
+    border-radius: 10px; padding: 12px 16px; font-size: 14px; color: var(--navy);
+  }
+  .session-card .takeaway b { color: var(--teal); }
+
+  /* PLATFORM NOTE */
+  .platform-note {
+    background: var(--card); border: 1px dashed var(--border);
+    border-radius: 14px; padding: 22px 24px; font-size: 15px; color: var(--text);
+  }
+  .platform-note b { color: var(--navy); }
+
+  /* OBJECTIVES */
+  .obj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .obj-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 22px; text-align: center;
+  }
+  .obj-card .emoji { font-size: 30px; margin-bottom: 10px; }
+  .obj-card h4 { font-size: 16px; color: var(--navy); margin-bottom: 8px; font-weight: 800; }
+  .obj-card p { font-size: 14px; color: var(--muted); }
+
+  /* INVESTMENT */
+  .inv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; }
+  .inv-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px; display: flex; flex-direction: column;
+  }
+  .inv-card.featured { border: 2px solid var(--teal); box-shadow: 0 8px 24px rgba(11,168,154,0.12); }
+  .inv-card .badge {
+    align-self: flex-start; background: var(--teal); color: #fff;
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; padding: 4px 10px; border-radius: 999px; margin-bottom: 12px;
+  }
+  .inv-card h3 { font-size: 17px; color: var(--navy); margin-bottom: 6px; font-weight: 800; }
+  .inv-card .price { font-size: 28px; font-weight: 800; color: var(--teal); margin-bottom: 2px; }
+  .inv-card .price-strike { font-size: 14px; color: var(--muted); text-decoration: line-through; margin-bottom: 4px; }
+  .inv-card .price-note { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+  .inv-card ul { padding-left: 18px; font-size: 14px; color: var(--text); flex-grow: 1; }
+  .inv-card ul li { margin-bottom: 8px; }
+  .inv-card .saving {
+    margin-top: 12px; background: var(--teal-light); color: var(--teal);
+    font-size: 13px; font-weight: 700; padding: 8px 12px;
+    border-radius: 8px; text-align: center;
+  }
+  .inv-card .footnote {
+    font-size: 12px; color: var(--muted); margin-top: 14px;
+    padding-top: 14px; border-top: 1px solid var(--border);
+  }
+
+  .schedule-note {
+    margin-top: 22px; background: var(--navy); color: #fff;
+    border-radius: 14px; padding: 18px 22px; font-size: 14px; text-align: center;
+  }
+  .schedule-note b { color: var(--teal); }
+  .payment-note { margin-top: 14px; font-size: 13px; color: var(--muted); text-align: center; }
+
+  /* HONEST NOTE */
+  .honest-note {
+    background: #FFF8EC; border: 1px solid var(--gold);
+    border-radius: 14px; padding: 20px 24px; margin-bottom: 24px; font-size: 15px; color: var(--text);
+  }
+  .honest-note b { color: var(--navy); }
+
+  /* BIO */
+  .bio-card {
+    background: var(--navy); border: 1px solid var(--navy);
+    border-radius: 14px; padding: 28px; display: flex; gap: 24px; align-items: center;
+  }
+  .bio-photo {
+    flex: 0 0 auto; width: 110px; height: 110px; border-radius: 50%;
+    background: var(--teal-light); border: 2px solid var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: var(--teal); text-align: center; font-weight: 700; overflow: hidden;
+  }
+  .bio-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .bio-text h3 { font-size: 19px; color: #fff; margin-bottom: 2px; font-weight: 800; }
+  .bio-text .role { font-size: 14px; color: var(--teal); font-weight: 600; margin-bottom: 12px; }
+  .bio-text p { font-size: 14px; color: #C9D2E3; margin-bottom: 16px; }
+  .bio-links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .bio-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+    color: #fff; font-size: 13px; font-weight: 600;
+    padding: 7px 14px; border-radius: 999px; text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .bio-link:hover { background: rgba(255,255,255,0.16); }
+
+  /* WHATSAPP CTA */
+  .cta-banner {
+    background: var(--navy); border-radius: 14px; padding: 32px 28px;
+    text-align: center;
+  }
+  .cta-banner h3 { font-size: 21px; color: #fff; font-weight: 800; margin-bottom: 10px; }
+  .cta-banner p { font-size: 15px; color: #C9D2E3; max-width: 560px; margin: 0 auto 22px; }
+  .cta-button {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--teal); color: #fff; font-size: 16px; font-weight: 700;
+    padding: 13px 28px; border-radius: 999px; text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+  .cta-button:hover { opacity: 0.9; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy); color: #C9D2E3;
+    padding: 28px 0; text-align: center; font-size: 13px; margin-top: 24px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 760px) {
+    .stats-grid, .obj-grid, .inv-grid { grid-template-columns: 1fr; }
+    .bio-card { flex-direction: column; text-align: center; }
+    .bio-links { justify-content: center; }
+    .hero h1 { font-size: 26px; }
+    .section-title { font-size: 22px; }
+    .duracion { margin-left: 0 !important; }
+  }
+
+  /* Fuentes enlazadas en estadisticas */
+  .stat-card .src a { color: inherit; text-decoration: underline; }
+
+  /* LA EVIDENCIA */
+  .evidence-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-left: 4px solid var(--teal);
+    border-radius: 14px; padding: 24px 26px; font-size: 15px; color: var(--text);
+  }
+  .evidence-card p { margin-bottom: 18px; }
+  .evidence-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--teal); color: #fff; font-size: 14px; font-weight: 700;
+    padding: 10px 20px; border-radius: 999px; text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+  .evidence-link:hover { opacity: 0.9; }
+
+  /* OPCION A: nota de acceso a plataforma */
+  .inv-card .price-sub { font-size: 12.5px; font-weight: 700; color: var(--teal); margin: -6px 0 14px; }
+  /* OPCION C: 3 meses resaltados */
+  .inv-card ul li.hl {
+    background: var(--teal-light); color: var(--navy); font-weight: 800;
+    border-radius: 8px; padding: 8px 10px; margin: 4px 0;
+  }
+  .inv-card ul li.hl { list-style: none; margin-left: -18px; margin-top: 12px; }
+  .inv-card ul li.hl::before { content: none; }
+  /* COMPLEMENTO BIENESTAR */
+  .addon-card {
+    background: var(--card); border: 1px dashed var(--teal); border-radius: 14px;
+    padding: 24px 26px; font-size: 15px; color: var(--text);
+  }
+  .addon-card p { margin-bottom: 14px; }
+  .addon-card ul { list-style: none; margin: 0 0 16px; padding: 0; }
+  .addon-card ul li { position: relative; padding-left: 22px; margin-bottom: 8px; }
+  .addon-card ul li::before { content: "✓"; position: absolute; left: 0; color: var(--teal); font-weight: 800; }
+  .addon-card .addon-meta { font-size: 14px; color: var(--navy); font-weight: 800; margin: 0; }
+
+  /* HORAS DESTACADAS EN INVERSION */
+  .inv-card .hours-hl { display: inline-block; align-self: flex-start; background: var(--teal-light); color: var(--teal); font-size: 15px; font-weight: 800; padding: 6px 14px; border-radius: 8px; margin: 4px 0 8px; }
+
+  /* PAGO UNICO DESTACADO */
+  .payment-note b { color: var(--navy); font-weight: 800; }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><div class="logo">CV<span>ale!</span></div><div class="tagline">Propuesta personalizada</div></div></header>
+<div class="hero"><div class="wrap"><h1>Hola Marco, esto es para ti 👋</h1><p class="lead">Llevas décadas liderando proyectos sociales, construyendo alianzas con cooperantes y dirigiendo la operación y las finanzas de organizaciones; has negociado con financiadores, liderado equipos y administrado recursos de alto valor. Lo que hoy falta no es trayectoria; es visibilidad y un posicionamiento claro para que las puertas de dirección se abran. Eso es lo que vamos a construir juntos.</p></div></div>
+<section><div class="wrap"><div class="section-label">El contexto del mercado</div><div class="section-title">Lo que está pasando hoy</div><div class="stats-grid"><div class="stat-card"><div class="num">80 %</div><div class="desc"><b>Oportunidad:</b> según un headhunter citado por La República, cerca del 80 % de las vacantes de las empresas se gestionan por referidos y voz a voz; y según elempleo.com, en los rangos directivos la mayoría de las posiciones se mueven en el “mercado oculto”. Los cargos de dirección se consiguen más por visibilidad y relaciones que por postulaciones en portales.</div><div class="src"><a href="https://www.larepublica.co/alta-gerencia/conozca-algunos-de-los-consejos-de-headhunters-para-cuando-quiera-buscar-trabajo-3781170" target="_blank" rel="noopener">La República</a> · <a href="https://www.elempleo.com/co/noticias/noticias-laborales/estas-son-las-ofertas-para-directivos-que-solo-encontraras-en-elempleocom-8792" target="_blank" rel="noopener">elempleo.com</a></div></div><div class="stat-card"><div class="num">70 %</div><div class="desc"><b>Amenaza:</b> según datos oficiales citados por Voz de América, el 70 % de la cooperación internacional que recibe Colombia proviene de EE. UU. Tras el cierre de USAID en 2025, el sector donde construiste tu carrera tiene menos cargos y más profesionales senior compitiendo; conviene ampliar el mapa de dónde buscar.</div><div class="src"><a href="https://www.vozdeamerica.com/a/ong-colombia-muestran-preocupadas-posible-cierre-usaid/7964391.html" target="_blank" rel="noopener">Voz de América, febrero 2025</a></div></div><div class="stat-card"><div class="num">19 billones</div><div class="desc"><b>Oportunidad:</b> las grandes empresas del país destinaron cerca de 19 billones de pesos a iniciativas sociales y ambientales en 2025, según el Índice de Inversión Social y Ambiental Empresarial. El gasto ambiental crece y la inversión social cae (16 % según el titular de Infobae); los cargos se mueven hacia impacto, medición y gobierno, donde tu perfil financiero y de transparencia encaja.</div><div class="src"><a href="https://www.infobae.com/tecno/2026/09/11/inversion-social-empresarial-cae-16-en-colombia-la-tecnologia-aparece-como-respuesta/" target="_blank" rel="noopener">Infobae, septiembre 2026</a></div></div><div class="stat-card"><div class="num">48 %</div><div class="desc"><b>Oportunidad:</b> según la encuesta de ManpowerGroup Colombia (más de 600 empleadores), el 48 % de las empresas prevé aumentar su planta de personal en el cuarto trimestre de 2026, y la Tendencia Neta de Empleo subió 18 puntos porcentuales frente al mismo periodo de 2025. El mercado se está reactivando; la diferencia la hace estar visible y conectado cuando se abre cada oportunidad.</div><div class="src"><a href="https://www.portafolio.co/negocios/empresas/empleo-en-colombia-acelera-al-cierre-de-2026-48-de-empresas-preve-ampliar-su-planta-laboral-502401" target="_blank" rel="noopener">Portafolio, 2026</a> · <a href="https://www.diariodelsur.com.co/?p=645538" target="_blank" rel="noopener">Diario del Sur, 2026</a></div></div></div></div></section>
+<section><div class="wrap"><div class="section-label">Tus retos en esta búsqueda</div><div class="section-title">Lo que vamos a resolver juntos</div><div class="reto-card"><div class="reto-num">1</div><div class="reto-content"><h3>Un sector que se contrajo</h3><p>Gran parte de tu trayectoria está en proyectos financiados por cooperación, y esa financiación se redujo. No es falta de valor; es que hay menos cargos de dirección y más gente senior buscando. Hay que decidir hacia dónde mover tu experiencia: dirección de ONG y fundaciones, y responsabilidad social e impacto en empresas.</p></div></div><div class="reto-card"><div class="reto-num">2</div><div class="reto-content"><h3>Una trayectoria sólida que se lee difusa</h3><p>Gerente de operaciones, director de desarrollo de negocios, formulación de proyectos, alianzas, portafolios: hoy se leen varias identidades a la vez y cargos de distinto nivel. Cuando quien filtra no sabe en qué cargo ubicarte, el proceso no se abre. Hay que elegir un perfil principal y uno secundario, y apuntar solo a cargos de tu nivel.</p></div></div><div class="reto-card"><div class="reto-num">3</div><div class="reto-content"><h3>Una huella digital que no refleja tu nivel</h3><p>Tus logros más fuertes están en tu hoja de vida, pero no se ven en tu perfil de LinkedIn ni en lo que aparece de ti en internet. Faltan recomendaciones, actividad reciente y evidencia visible de lo que has liderado. Quien te busque antes de llamarte debería encontrar a un director.</p></div></div><div class="reto-card"><div class="reto-num">4</div><div class="reto-content"><h3>Abrir procesos: las puertas directivas se abren por relaciones</h3><p>Tu reto no es defenderte en la entrevista; es que te llamen. Eso depende de a quién conoces, de quién te conoce y de que te encuentren. Hay que reconectar tu red, ampliarla con las personas correctas y ser visible en los espacios donde se habla de tu sector.</p></div></div></div></section>
+<section><div class="wrap"><div class="section-label">La ruta de acompañamiento</div><div class="section-title">Revisión previa y 5 sesiones personalizadas 1:1 con Esteban Rubiano</div><div class="session-card"><div class="session-head"><div class="session-num">0</div><h3>Revisión y diagnóstico de tu búsqueda</h3><span class="duracion">1 h 30 min de revisión (sin reunión)</span></div><div class="objective">Objetivo: entender qué está pasando con tu búsqueda antes de definir cualquier estrategia.</div><div class="subhead">En esta sesión</div><ul><li><b>Usamos lo que ya enviaste:</b> tu hoja de vida y tu perfil de LinkedIn.</li><li><b>Necesitamos de ti:</b> el registro de tus últimas 10 postulaciones (cargo, empresa, fecha, canal, aspiración salarial indicada y respuesta).</li><li>Tus estadísticas de LinkedIn, que encuentras en la parte de notificaciones.</li><li>Una lista de 10 tipos de cargos y empresas que te gustarían, para tener una idea de tus intereses.</li><li>Un análisis de habilidades: Esteban te explica cómo hacerlo y nos lo envías.</li><li><b>Esteban revisa</b> todo lo anterior y lo que aparece de ti en Google, y prepara la investigación de mercado.</li></ul><div class="takeaway"><b>Te llevas:</b> informe de diagnóstico con los hallazgos priorizados (qué te filtra y por qué) + insumos para la sesión 1.</div></div><div class="session-card"><div class="session-head"><div class="session-num">1</div><h3>Mercado y posicionamiento</h3><span class="duracion">1 hora</span></div><div class="objective">Objetivo: elegir hacia dónde apuntar con datos reales de mercado y definir tu posicionamiento.</div><div class="subhead">En esta sesión</div><ul><li>Analizar los resultados del diagnóstico y ver cómo impactan tu búsqueda.</li><li><b>Explorar los dos tipos de dirección más afines a tu perfil,</b> con vacantes reales y datos de mercado.</li><li>Lectura de vacantes: qué es indispensable, qué es negociable y qué brechas pesan poco.</li><li>Mercado y guía salarial, contrastados con tu expectativa (incluido el salario integral).</li><li><b>Posicionamiento:</b> perfil principal y secundario, mensajes clave y palabras clave, y un criterio claro de a qué cargos sí aplicar y a cuáles no.</li></ul><div class="takeaway"><b>Te llevas:</b> perfil principal y secundario + títulos de cargo con palabras clave + lista inicial de organizaciones + criterios de postulación + guía salarial.</div></div><div class="session-card"><div class="session-head"><div class="session-num">2</div><h3>Hoja de vida de director</h3><span class="duracion">2 horas</span></div><div class="objective">Objetivo: tener una hoja de vida de director, de 2 páginas, con logros sustentables, acorde a los perfiles elegidos.</div><div class="subhead">En esta sesión</div><ul><li>Validación de cada cifra y logro con su evidencia.</li><li>Perfil profesional con resultados; experiencia reciente en detalle y la anterior condensada.</li><li>Formato para filtros ATS y estado preciso de tu maestría y de tus credenciales.</li><li><b>Hoja de vida acorde a uno o dos perfiles elegidos,</b> relacionados con tu seniority y tu experiencia, y versión orientada a tu sector e industria.</li><li>Resumen ejecutivo de una página y bio corta para networking y para headhunters.</li></ul><div class="takeaway"><b>Te llevas:</b> hoja de vida base + versión por perfil elegido, orientada a tu sector + resumen ejecutivo + bio corta.</div></div><div class="session-card"><div class="session-head"><div class="session-num">3</div><h3>LinkedIn y presencia digital</h3><span class="duracion">2 horas</span></div><div class="objective">Objetivo: que LinkedIn y tu presencia digital muestren tu nivel, y sacarles provecho para encontrar y contactar a las personas correctas.</div><div class="subhead">En esta sesión</div><ul><li><b>Perfil de LinkedIn:</b> titular, “Acerca de”, logros por cargo, aptitudes, foto y configuración (incluida la banda de búsqueda de empleo solo para reclutadores) y limpieza de actividad.</li><li><b>Recomendaciones:</b> a quién pedirlas y cómo.</li><li><b>Cómo usarlo:</b> encontrar personas objetivo con filtros y búsquedas, conectar con mensajes que se responden, seguir empresas y comentar con criterio.</li><li><b>Huella digital:</b> qué aparece de ti en Google y en otras plataformas, y cómo mejorarlo.</li><li><b>Otras plataformas de empleo:</b> cómo sacarles provecho.</li></ul><div class="takeaway"><b>Te llevas:</b> perfil actualizado + banco de textos + guía de búsqueda y contacto + lista de personas para recomendaciones + plan para tu huella digital y otras plataformas.</div></div><div class="session-card"><div class="session-head"><div class="session-num">4</div><h3>Red de contactos, visibilidad y huella digital</h3><span class="duracion">1 h 30 min</span></div><div class="objective">Objetivo: reconectar tu red, ampliarla con las personas que abren puertas y ganar visibilidad.</div><div class="subhead">En esta sesión</div><ul><li>Mapa de tu red por categorías, cercanía y potencial para abrir puertas.</li><li><b>Personas objetivo:</b> dónde encontrarlas y cómo priorizarlas, apoyándote en herramientas de IA gratuitas (por ejemplo, un espacio de trabajo dedicado a tu búsqueda en ChatGPT que investiga y organiza la información).</li><li>Guiones para reconectar, pedir conversaciones informativas y pedir presentaciones.</li><li>Sistema de seguimiento semanal en un tablero virtual.</li><li><b>Visibilidad:</b> temas sobre los que quieres ser referente y formatos (publicaciones, artículos, columnas, charlas, gremios, docencia), con un plan de 4 semanas.</li></ul><div class="takeaway"><b>Te llevas:</b> mapa de contactos + lista de personas objetivo + guiones de mensajes + tablero de seguimiento + línea editorial y calendario de 4 semanas.</div></div><div class="session-card"><div class="session-head"><div class="session-num">5</div><h3>Narrativa personal y entrevistas</h3><span class="duracion">2 horas</span></div><div class="objective">Objetivo: contar tu historia con claridad y llegar a cada entrevista preparado.</div><div class="subhead">En esta sesión</div><ul><li><b>Tu narrativa y tu speech,</b> programados: por qué tu perfil es el que buscan y cómo explicar estos meses.</li><li>Tus logros en formato STAR.</li><li>Cómo investigar y entender bien una empresa antes de la entrevista.</li><li>Preguntas difíciles: sobrecalificación, inglés y expectativa salarial; y conversación salarial.</li><li><b>Simulacro de entrevista con retroalimentación.</b></li></ul><div class="takeaway"><b>Te llevas:</b> speech y narrativa listos + banco de historias STAR + guía para investigar una empresa + guion salarial + feedback del simulacro.</div></div></div></section>
+<section><div class="wrap"><div class="honest-note">💬 <b>Una nota honesta sobre el proceso:</b> el mercado de dirección en el sector social está más estrecho que hace dos años, y no podemos prometer un resultado de contratación. Tampoco hacemos intermediación ni cobramos por vacantes. Lo que sí te garantizamos es que cada sesión termina con entregables concretos y que sabrás qué está funcionando en tu búsqueda. Los resultados dependen también de lo que ejecutes entre sesiones: contactos, publicaciones y postulaciones. El inglés es una brecha en parte de los cargos de ONG internacionales; no la escondemos, la ponemos en el mapa y la priorizamos según tus cargos objetivo.</div></div></section>
+<section><div class="wrap"><div class="section-label">Nuestros 4 objetivos juntos</div><div class="section-title">A dónde queremos llegar</div><div class="obj-grid"><div class="obj-card"><div class="emoji">🔍</div><h4>Entender qué está pasando</h4><p>Saber por qué no se abren procesos y qué cambiar primero, con un diagnóstico claro y priorizado.</p></div><div class="obj-card"><div class="emoji">🎯</div><h4>Posicionamiento y materiales de director</h4><p>Un perfil claro para cada uno de los perfiles elegidos, con hoja de vida y LinkedIn a tu nivel.</p></div><div class="obj-card"><div class="emoji">🤝</div><h4>Red activa y visibilidad</h4><p>Reconectar tu red, ampliarla con personas objetivo y ser visible donde se mueven los cargos directivos.</p></div><div class="obj-card"><div class="emoji">💬</div><h4>Entrevistas con narrativa sólida</h4><p>Llegar con tu historia, tus logros y la conversación salarial preparadas.</p></div></div></div></section>
+<section><div class="wrap"><div class="section-label">Inversión</div><div class="section-title">Tres formas de empezar</div><div class="inv-grid"><div class="inv-card featured"><div class="badge">Sugerida</div><h3>Opción A · Paquete completo</h3><div class="price">$760.000 COP</div><div class="price-strike">Precio individual: $850.000</div><div class="hours-hl">10 horas en total</div><div class="price-note">Pago por etapas · revisión + 5 sesiones</div><div class="price-sub">Acceso a la plataforma CVale únicamente durante las sesiones</div><ul><li>Revisión y diagnóstico (1h 30min) = $127.500</li><li>1. Mercado y posicionamiento (1h) = $85.000</li><li>2. Hoja de vida de director (2h) = $170.000</li><li>3. LinkedIn y presencia digital (2h) = $170.000</li><li>4. Red de contactos, visibilidad y huella digital (1h 30min) = $127.500</li><li>5. Narrativa personal y entrevistas (2h) = $170.000</li></ul><div class="saving">Ahorras $90.000 COP vs. precio individual</div></div><div class="inv-card"><h3>Opción B · Sesiones a la carta</h3><div class="price">$85.000 COP</div><div class="hours-hl">Por hora</div><ul><li>Revisión y diagnóstico (1h 30min) = $127.500</li><li>1. Mercado y posicionamiento (1h) = $85.000</li><li>2. Hoja de vida de director (2h) = $170.000</li><li>3. LinkedIn y presencia digital (2h) = $170.000</li><li>4. Red de contactos, visibilidad y huella digital (1h 30min) = $127.500</li><li>5. Narrativa personal y entrevistas (2h) = $170.000</li></ul><div class="footnote">Eliges cuáles tomar y en qué orden; se paga cada sesión antes de realizarla.</div></div><div class="inv-card"><h3>Opción C · Paquete + Plataforma CVale</h3><div class="price">$960.000 COP</div><div class="hours-hl">Todo incluido</div><div class="price-note">Pago por etapas</div><ul><li>Revisión y diagnóstico + 5 sesiones personalizadas (10 horas en total)</li><li>1 hora de onboarding en plataforma</li><li class="hl">★ 3 meses de acceso a la plataforma CVale</li></ul><div class="footnote">Ideal si quieres seguimiento continuo entre sesiones.</div></div></div><div class="schedule-note">📅 Las fechas de cada sesión se fijan de <b>mutuo acuerdo</b>, según tu disponibilidad; sin presiones ni calendarios rígidos. Tengo disponibilidad a partir del <b>7 de diciembre</b>.</div><div class="payment-note"><b>Pago por etapas, con entregables claros en cada una:</b> la revisión previa (1 hora y media) al empezar; el resto del paquete en dos pagos iguales, uno antes de la sesión 1 y otro antes de la sesión 3. Pagos vía Bancolombia o transferencia, a acordar según el medio que más te convenga. · Los precios están en COP.</div><div style="margin-top:28px"><div class="session-card"><div class="session-head"><div class="session-num">+</div><h3>Complemento opcional: tu propuesta como consultor independiente</h3><span class="duracion">2 a 3 sesiones de 90 min</span></div><div class="objective">Objetivo: crear tu oferta como consultor freelance. Es independiente del plan y se contrata aparte, si quieres.</div><div class="subhead">En estas sesiones</div><ul><li><b>Oferta de valor:</b> qué servicios vendes y a quién (formulación de proyectos, fortalecimiento institucional, gobierno y transparencia, estructuración financiera).</li><li><b>Propuesta comercial:</b> credenciales, tarifas y presentación de tu servicio.</li><li><b>Plan de primeros clientes</b> (sesión opcional): red, alianzas y prospección.</li></ul><div class="takeaway"><b>Te llevas:</b> perfil de consultor + oferta de servicios + propuesta base y tarifas + plan para los primeros clientes. 2 sesiones = $255.000 · 3 sesiones = $382.500</div></div></div></div></section>
+<section><div class="wrap"><div class="section-label">La evidencia</div><div class="section-title">Esto ya lo hemos hecho con otras personas</div><div class="evidence-card"><p>En CVale hemos ayudado a personas de diferentes industrias a posicionarse en trabajo remoto y presencial, en áreas de tecnología, marketing, logística y recursos humanos, entre otras. Conoce algunas de esas historias:</p><div style="display:flex; flex-wrap:wrap; gap:10px;"><a class="evidence-link" href="https://cvaleco.com/blog/johanny-de-desempleada-a-trabajadora-remota" target="_blank" rel="noopener">Johanny: de desempleada a trabajadora remota →</a><a class="evidence-link" href="https://www.tiktok.com/@cvaleco/video/7707436178181606663" target="_blank" rel="noopener">Juan David: su historia en video →</a></div></div></div></section>
+<section><div class="wrap"><div class="section-label">Quién va a acompañarte</div><div class="section-title">Esteban Rubiano</div><div class="bio-card"><div class="bio-photo"><img src="data:image/jpeg;base64,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" alt="Esteban Rubiano"></div><div class="bio-text"><h3>Esteban Rubiano Giraldo</h3><div class="role">Fundador de CVale · Profesional en Desarrollo Organizacional</div><p>Con más de 6 años de experiencia en desarrollo de talento, L&amp;D y HR en entornos multinacionales a lo largo de LATAM y el Caribe, Esteban creó CVale con una convicción clara: encontrar un buen trabajo no debería ser un privilegio. Cree que el empleo es una puerta de acceso a mejor calidad de vida, más tiempo libre y más recursos; y trabaja todos los días para que más personas puedan cruzar esa puerta con estrategia, no con suerte.</p><div class="bio-links"><a class="bio-link" href="https://www.linkedin.com/in/estebanrubiano/" target="_blank" rel="noopener">in LinkedIn</a><a class="bio-link" href="https://cvaleco.com" target="_blank" rel="noopener">🌐 cvaleco.com</a><a class="bio-link" href="https://www.tiktok.com/@cvaleco" target="_blank" rel="noopener">♪ TikTok @cvaleco</a><a class="bio-link" href="https://www.whatsapp.com/channel/0029VbDO6VDKmCPGgceGA224" target="_blank" rel="noopener">💬 Canal WhatsApp</a></div></div></div></div></section>
+<section><div class="wrap"><div class="cta-banner"><h3>Marco, ¿listo para que las puertas de dirección se abran? 🚀</h3><p>No tienes que hacerlo solo ni improvisar. Con un diagnóstico claro, materiales a tu nivel y una red activa, este proceso puede ser completamente diferente: más claro, más ordenado y con entrevistas en el horizonte.</p><a class="cta-button" href="https://wa.me/573123545306?text=Hola%20Esteban%2C%20quiero%20empezar%20mi%20proceso%20con%20CVale" target="_blank" rel="noopener">Quiero empezar →</a></div></div></section>
+<footer><div class="wrap"><div class="logo" style="color:#fff; margin-bottom:6px;">CV<span style="color:#0BA89A;">ale!</span></div><div>cvaleco.com</div></div></footer>
+</body>
+</html>
